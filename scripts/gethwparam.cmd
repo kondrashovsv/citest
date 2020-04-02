@@ -31,3 +31,5 @@ REM "HDD SIZE:"
 for /f "tokens=1-3" %%a in ('
 	WMIC LOGICALDISK GET FreeSpace^,Name^,Size ^|FINDSTR /I /V "Name" ^| FINDSTR "C:"
 ') do @echo wsh.echo "HDD disk usage: " ^& FormatNumber^(cdbl^(%%c^-%%a^)/1024/1024/1024, 2^)^& " GiB" > %temp%\tmp.vbs & @echo( & @cscript //nologo %temp%\tmp.vbs >> %fnlog% & del %temp%\tmp.vbs
+
+echo Hello from dev
