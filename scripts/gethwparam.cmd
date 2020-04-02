@@ -4,13 +4,13 @@ REM set filename
 set fnlog="log.txt"
 
 REM "HOSTNAME:"
-echo HOSTNAME: %COMPUTERNAME%  >  %fnlog%
+echo Host name: %COMPUTERNAME%  >  %fnlog%
 
 REM "OS"
 for /f "delims=" %%i in ('
 	WMIC OS GET Caption^,Version^,OSArchitecture ^|FINDSTR /I /V "Caption" ^|FINDSTR /VIRC:"^$"
 ') do set os_version=%%i
-echo OS: %os_version% >> %fnlog%
+echo OS version: %os_version% >> %fnlog%
 
 REM "CPU CORES"
 for /f "tokens=1-2" %%a in ('
